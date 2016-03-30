@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- © <YEAR(S)> <AUTHOR(S)>
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+
+<openerp>
+    <data>
+        <menuitem name="Open Academy"
+            id="base.menu_openacademy_root"
+            sequence="81"/>
+        <menuitem name="Open Academy"
+                id="menu_openacademy_models"
+                parent="base.menu_openacademy_root"
+                sequence="1"/>
+
+        <record id="modelcourses_action" model="ir.actions.act_window">
+            <field name="name">Courses</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">model.course</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form,</field>
+            <field name="view_id" eval="False"/>
+            <field name="context">{}</field>
+        </record>
+        <menuitem action="modelcourses_action" id="modelcourses_production_action"
+                parent="menu_openacademy_models" sequence="1"/>
+    </data>
+</openerp>
