@@ -13,7 +13,7 @@
                 sequence="1"/>
 
         <record id="modelcourses_action" model="ir.actions.act_window">
-            <field name="name">Courses</field>
+            <field name="name">Courses Dunha</field>
             <field name="type">ir.actions.act_window</field>
             <field name="res_model">model.course</field>
             <field name="view_type">form</field>
@@ -21,7 +21,42 @@
             <field name="view_id" eval="False"/>
             <field name="context">{}</field>
         </record>
+
         <menuitem action="modelcourses_action" id="modelcourses_production_action"
                 parent="menu_openacademy_models" sequence="1"/>
+
+        <record id="model_courses_view_tree" model="ir.ui.view">
+            <field name="name">courses.tree</field>
+            <field name="model">model.course</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name" string="Name" />
+                    <field name="description" string="Description"/>
+                    <field name="responsible_id" string="Description"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="model_courses_view_form" model="ir.ui.view">
+            <field name="name">courses.tree</field>
+            <field name="model">model.course</field>
+            <field name="arch" type="xml">
+                <form string="Idea form">
+                    <group colspan="2" col="2">
+                        <separator string="General stuff" colspan="2"/>
+                        <field name="name"/>
+                        <field name="responsible_id"/>
+                    </group>
+                    <notebook colspan="4">
+                        <page string="Description">
+                            <field name="description" nolabel="1"/>
+                        </page>
+                        <page string="Sessions">
+                            <field name="session_id" nolabel="1"/>
+                        </page>
+                    </notebook>
+                </form>
+            </field>
+        </record>
     </data>
 </openerp>
